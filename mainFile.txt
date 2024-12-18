@@ -1,4 +1,4 @@
 this file was created in main.
 
-Cmon, make a merge conflict for real.
-I meant it.
+Making a new merge conflict.
+For real, i mean it.
