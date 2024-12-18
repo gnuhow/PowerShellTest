@@ -8,6 +8,7 @@ function example {
     Import-Module ActiveDirectory
     . .\import.ps1
 
+    # yay code!
     $fileName = "test.txt"
     $folderName = "newFolder"
 
