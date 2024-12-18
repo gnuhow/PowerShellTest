@@ -10,4 +10,7 @@ git add .
 git commit -m "Initial commit"
 git push
 
-
+# rebase from main
+git add .
+git commit -m "my commit"
+git push
