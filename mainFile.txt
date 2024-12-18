@@ -1,4 +1,4 @@
 this file was created in main.
 
-Making a new merge conflict.
-For real, i mean it.
+Now THIS IS A MERGE CONFLIGT
+YA KNOW
