@@ -10,7 +10,22 @@ git add .
 git commit -m "Initial commit"
 git push
 
-# rebase from main
+# rebase a feature-branch from main
 git add .
 git commit -m "my commit"
 git push
+
+git checkout main
+git pull
+git checkout feature-branch
+git push
+
+# do a git merge into main from  feature-branch
+git add .
+git commit -m "my new feature"
+git push
+
+git checkout main
+git pull
+git diff feature-branch
+git merge feature branch
