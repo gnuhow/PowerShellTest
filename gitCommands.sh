@@ -3,6 +3,8 @@ git clone https://github.com/gnuhow/PowerShellTest.git
 
 
 # make a new branch and push it
+git branch -a      # verify branch doesn't exist first
+
 git checkout -b mybranch
 git push -u origin mybranch
 
@@ -33,3 +35,6 @@ git checkout main
 git pull
 git diff feature-branch
 git merge feature branch
+
+git push origin --delete feature    # cleanup
+git branch --delete feature             
