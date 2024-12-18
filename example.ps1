@@ -63,7 +63,6 @@ Write-Host "last char $($loremCharArray[-1])"          # last character "."
 $loremCharArray[6] = "+"
 
 # String array looping and manipulation
-# $loremCharArray = $loremString.ToCharArray()
 $resultCharArray = $loremCharArray
 $position = 0
 foreach ($character in $loremCharArray) {
@@ -78,9 +77,6 @@ foreach ($character in $loremCharArray) {
 $resultString = $resultCharArray -join ''                  # join the array back into a string
 Write-Host "result: $resultString"
 
-
 # cleanup
 Remove-Item $filename
 Remove-Item $folderName
-
-
