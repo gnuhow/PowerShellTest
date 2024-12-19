@@ -61,21 +61,21 @@
 
 
 # delete a tag
-git tag -d v1.0
-git push origin :refs/tags/v1.0
+    git tag -d v1.0
+    git push origin :refs/tags/v1.0
 
 
 # throw away all files, and reset back to a certain commit.
-git reset --hard HEAD~3
+    git reset --hard HEAD~3
 
 
 # revert back the changes made by a commit
-git revert <commit id>
+    git revert <commit id>
 
 
 # restore a file back to a certain commit id
-git restore --source=<commit id> .              # restore all files in current dir
-git restore --source=<commit id> myfile.txt     # restore one file
+    git restore --source=<commit id> .              # restore all files in current dir
+    git restore --source=<commit id> myfile.txt     # restore one file
 
 
 # git rebase with a remote origin. It's alternative to merging main into dev
