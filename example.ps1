@@ -9,7 +9,7 @@ $jsonFilename = "example.json"
 $loremString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
 # example function
-function example {
+function Use-Example {
     param(
         [string] $name,
         [int] $age,
@@ -18,13 +18,16 @@ function example {
 
     Write-Host -ForegroundColor Green "User Name: $name" 
 }
-example -name "charlie" -age 33 -isAlive $true
+Use-Example -name "charlie" -age 33 -isAlive $true
 
+# you don't need to enclose PowerShell variables in quotes, unlike bash.
+$var = 'this is a variable with alot of spaces and $special !@#$^ characters'
+Write-Host $var -ForegroundColor Green
 
-# Write host, pring objects to the screen
-Write-Host -ForegroundColor Yellow "Global var: `"$GLOBAL_VAR`""
+# Write host, print objects to the screen
+Write-Host -ForegroundColor Yellow "Global var: `"$GlobalVariable`""
 
-#  Write-output objects to a pipeline
+#  Write objects or strings to a text file
 Write-Output "file data" | Out-File -FilePath $filename
 Write-Output "more data" | Add-content -Path $filename
 
@@ -34,8 +37,12 @@ New-Item -Path $folderName -ItemType Directory
 # ls the new folder
 Get-ChildItem $folderName
 
+# move a file into the new folder
+Move-Item -Path $filename -Destination .\$folderName\$filename
+Get-ChildItem $folderName
+
 # load Json into an object
-$exampleHashTable = Get-Content -Raw "$jsonFilename" | ConvertFrom-Json 
+$exampleHashTable = Get-Content -Raw $jsonFilename | ConvertFrom-Json 
 
 # view the contents of an object
 Select-Object -InputObject $exampleHashTable -Property *
@@ -53,12 +60,15 @@ Write-Host "Dot notation item2: $value"
 Get-Process | Where-Object {$PSItem.ProcessName -imatch "winlogon"}
 
 # do text parsing
-Select-String -Path loremIpsum.txt -Pattern '.*maximus.*' -CaseSensitive
+Select-String -Path loremIpsum.txt -Pattern '$.*maximus.*^' -CaseSensitive
+
+# Replace a string in a small file
+(Get-Content $filename) -replace 'original text', 'replacement text' | Set-Content $filename
 
 # String arrays
 $loremCharArray = $loremString.ToCharArray()
 Write-Host "first char $($loremCharArray[0])"          # l
-Write-Host "first word $($loremCharArray[0..4])"  # lorem
+Write-Host "first word $($loremCharArray[0..4])"        # lorem
 Write-Host "last char $($loremCharArray[-1])"          # last character "."
 $loremCharArray[6] = "+"
 
@@ -78,5 +88,5 @@ $resultString = $resultCharArray -join ''                  # join the array back
 Write-Host "result: $resultString"
 
 # cleanup
-Remove-Item $filename
+Remove-Item .\$folderName\$filename
 Remove-Item $folderName
