@@ -53,7 +53,33 @@
     git branch --delete feature             
 
 
-# git rebase with a remote origin isn't a very clean process
+# tag a branch to mark it as a release
+    git tag                                         # list tags
+    git tag -l v2*                                  # list tags starting with v2
+    git tag -a v1.0 -m "Release candidate 1.0"      # annotated tags, have more info.
+    git push origin v1.0          
+
+
+# delete a tag
+git tag -d v1.0
+git push origin :refs/tags/v1.0
+
+
+# throw away all working files, and reset back to the latest commit.
+git reset --hard
+
+
+# revert back the changes made by a commit
+git revert <commit id>
+
+
+# restore a file back to a certain commit id
+git restore --source=<commit id> .              # restore all files in current dir
+git restore --source=<commit id> myfile.txt     # restore one file
+
+
+# git rebase with a remote origin. It's alternative to merging main into dev
+# This isn't a very clean process.
     git add .
     git commit -m "my new feature"
     git push
