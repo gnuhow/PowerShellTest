@@ -1,3 +1,7 @@
+# status
+    git status
+    git history
+
 # clone the branch
     git clone https://github.com/gnuhow/PowerShellTest.git
 
@@ -15,7 +19,14 @@
     git push
 
 
-# update a feature branch from main
+# compare two branches before merging
+    git checkout main
+    git pull
+    git checkout feature-branch
+    git diff main
+
+
+# merge main into the feature branch first, handle merge conflicts.
     git add .
     git commit -m "my commit"
     git push
@@ -24,13 +35,6 @@
     git pull
     git merge feature-branch
     git push
-
-
-# compare two branches before merging
-    git checkout main
-    git pull
-    git checkout feature-branch
-    git diff main
 
 
 # do a git merge into main from  feature-branch
@@ -43,7 +47,9 @@
     git diff feature-branch
     git merge feature-branch
 
-    git push origin --delete feature    # cleanup
+
+# delete feature branch after merge
+    git push origin --delete feature
     git branch --delete feature             
 
 
