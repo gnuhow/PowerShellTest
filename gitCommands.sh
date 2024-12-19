@@ -65,8 +65,8 @@ git tag -d v1.0
 git push origin :refs/tags/v1.0
 
 
-# throw away all working files, and reset back to the latest commit.
-git reset --hard
+# throw away all files, and reset back to a certain commit.
+git reset --hard HEAD~3
 
 
 # revert back the changes made by a commit
