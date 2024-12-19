@@ -26,6 +26,13 @@
     git push
 
 
+# compare two branches before merging
+    git checkout main
+    git pull
+    git checkout feature-branch
+    git diff main
+
+
 # do a git merge into main from  feature-branch
     git add .
     git commit -m "my new feature"
@@ -34,7 +41,7 @@
     git checkout main
     git pull
     git diff feature-branch
-    git merge feature branch
+    git merge feature-branch
 
     git push origin --delete feature    # cleanup
     git branch --delete feature             
@@ -54,4 +61,5 @@
 
     # force push because my feature branch will show it is behind the origin feature branch
     git push --force origin feature-branch
+
 
