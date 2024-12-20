@@ -1,3 +1,3 @@
-$GLOBAL_VAR = "example global var" 
+$GlobalVar = "example global var" 
 
 write-host -ForegroundColor Cyan "Import script started."
